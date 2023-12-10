@@ -4,7 +4,11 @@
     "target": "ES6",
     "jsx": "react-jsx",
     "checkJs": true,
-    "moduleResolution": "nodenext"
+    "moduleResolution": "nodenext",
+    "baseUrl": "./",
+    "paths": {
+      "@assets/*": ["src/assets/*"]
+    }
   },
-  "exclude": ["node_modules", "**/node_modules/*"]
+  "exclude": ["node_modules", "~/node_modules/*"]
 }
