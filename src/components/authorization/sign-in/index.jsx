@@ -1,11 +1,16 @@
 import logo from '@assets/logo.png';
 import { useState } from 'react';
+import { useLoginMutation } from '../../../__data__/services/auth/index.js';
 
 export const SignInForm = ({ onToggle }) => {
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
+  const [signIn, { data }] = useLoginMutation();
 
-  const handlerClick = () => {};
+  const handlerClick = async () => {
+    await signIn(name, password);
+    
+  };
 
   return (
     <form action="index.html" autoComplete="off">

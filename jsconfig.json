@@ -7,7 +7,8 @@
     "moduleResolution": "nodenext",
     "baseUrl": "./",
     "paths": {
-      "@assets/*": ["src/assets/*"]
+      "@assets/*": ["src/assets/*"],
+      "@src/*": ["src/*"]
     }
   },
   "exclude": ["node_modules", "~/node_modules/*"]
