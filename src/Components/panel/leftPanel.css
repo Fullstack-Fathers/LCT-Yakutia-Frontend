@@ -1,0 +1,29 @@
+.panel {
+  width: 300px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px #000 solid;
+
+  /* box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2); */
+  /* color: #1763ff; */
+}
+.cont-prof {
+  display: grid;
+  justify-items: start;
+  gap: 15px;
+}
+
+.prof {
+  display: flex;
+  gap: 23px;
+}
+.prof-img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+.prof-h {
+  max-width: 210px;
+  font-size: 21px;
+}
