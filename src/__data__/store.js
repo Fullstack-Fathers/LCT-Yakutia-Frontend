@@ -1,9 +1,12 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
+import { authApi } from './services/auth/index.js';
 
-const rootReducer = combineReducers({});
+const rootReducer = combineReducers({
+  [authApi.reducerPath]: authApi.reducer,
+});
 
-const apiMiddleware = [];
+const apiMiddleware = [authApi.middleware];
 
 export const store = configureStore({
   reducer: rootReducer,
