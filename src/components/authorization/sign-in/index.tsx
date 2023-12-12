@@ -1,5 +1,5 @@
-import logo from '@assets/logo.png';
 import { useState } from 'react';
+import logo from '@assets/logo.png';
 import { useLoginMutation } from '../../../__data__/services/auth/index.js';
 
 export const SignInForm = ({ onToggle }) => {
@@ -8,8 +8,7 @@ export const SignInForm = ({ onToggle }) => {
   const [signIn, { data }] = useLoginMutation();
 
   const handlerClick = async () => {
-    await signIn(name, password);
-    
+    await signIn({ name, password });
   };
 
   return (
