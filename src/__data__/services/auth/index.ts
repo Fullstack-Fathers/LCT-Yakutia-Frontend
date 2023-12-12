@@ -1,11 +1,11 @@
-import { createApi } from '@reduxjs/toolkit/query';
-import { attendanceBaseQuery } from '../../../utils/auth/index.js';
+import { createApi } from '@reduxjs/toolkit/query/react';
+import { attendanceBaseQuery } from '../../../utils/auth';
 
 export const authApi = createApi({
   reducerPath: 'authApi',
   baseQuery: attendanceBaseQuery,
   endpoints: (builder) => ({
-    login: builder.mutation({
+    login: builder.mutation<any, any>({
       query: (loginData) => ({
         url: '/auth/login',
         method: 'POST',
