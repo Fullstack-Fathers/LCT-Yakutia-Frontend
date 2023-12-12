@@ -3,6 +3,7 @@ import Auth from './Components/Authorization/Auth.jsx';
 import { MainPage } from './pages/mainPage/mainPage.jsx';
 import { MainWrapper } from './Components/main-wrapper/index.jsx';
 import { PrivateRoute } from './Components/private-route/index.jsx';
+import FirstPage from './pages/firstPage/firstPage.jsx';
 
  function App() {
   return (
@@ -25,6 +26,10 @@ import { PrivateRoute } from './Components/private-route/index.jsx';
               element={<MainWrapper children={<MainPage />} />}
             />
           <Route path="login" element={<Auth />} />
+          <Route
+              path="first"
+              element={<FirstPage />}
+            />
         </Route>
         </Route>
       </Routes>
