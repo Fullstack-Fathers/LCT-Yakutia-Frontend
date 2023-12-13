@@ -1,14 +1,24 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import logo from '@assets/logo.png';
-import { useLoginMutation } from '../../../__data__/services/auth/index.js';
+import { useSignInMutation } from '../../../__data__/services/auth/index.js';
+import { useNavigate } from 'react-router-dom';
 
-export const SignInForm = ({ onToggle }) => {
-  const [name, setName] = useState('');
+export const SignInForm = ({ onToggle }: any) => {
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [signIn, { data }] = useLoginMutation();
+  const [signIn, { error }] = useSignInMutation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!error) {
+      navigate('');
+    }
+  }, [error]);
 
   const handlerClick = async () => {
-    await signIn({ name, password });
+    if (email && password) {
+      await signIn({ email, password });
+    }
   };
 
   return (
@@ -29,14 +39,14 @@ export const SignInForm = ({ onToggle }) => {
       <div className="actual-form">
         <div className="input-wrap">
           <input
-            type="text"
+            type="email"
             minLength={4}
             className="input-field"
             autoComplete="off"
             required
-            onChange={(e) => setName(e.target.value)}
+            placeholder="Email"
+            onChange={(e) => setEmail(e.target.value)}
           />
-          <label>Name</label>
         </div>
 
         <div className="input-wrap">
@@ -46,9 +56,12 @@ export const SignInForm = ({ onToggle }) => {
             className="input-field"
             autoComplete="off"
             required
-            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Password"
+            onChange={(e) => {
+              setPassword(e.target.value);
+              console.log(e.target.value);
+            }}
           />
-          <label>Password</label>
         </div>
 
         <input
