@@ -1,10 +1,30 @@
 import logo from '@assets/logo.png';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useSignUpMutation } from '../../../__data__/services/auth';
+import { useNavigate } from 'react-router-dom';
 
-export const SignUpForm = ({ onToggle }) => {
+export const SignUpForm = ({ onToggle }: any) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [signUp, { error }] = useSignUpMutation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!error) {
+      navigate('');
+    }
+  }, [error]);
+
+  const handlerClick = async () => {
+    if (name && email && password) {
+      await signUp({
+        email,
+        name,
+        password,
+      });
+    }
+  };
 
   return (
     <form action="index.html" autoComplete="off">
@@ -29,8 +49,9 @@ export const SignUpForm = ({ onToggle }) => {
             className="input-field"
             autoComplete="off"
             required
+            placeholder="Name"
+            onChange={(e) => setName(e.target.value)}
           />
-          <label>Name</label>
         </div>
 
         <div className="input-wrap">
@@ -39,8 +60,9 @@ export const SignUpForm = ({ onToggle }) => {
             className="input-field"
             autoComplete="off"
             required
+            placeholder="Email"
+            onChange={(e) => setEmail(e.target.value)}
           />
-          <label>Email</label>
         </div>
 
         <div className="input-wrap">
@@ -50,11 +72,17 @@ export const SignUpForm = ({ onToggle }) => {
             className="input-field"
             autoComplete="off"
             required
+            placeholder="Password"
+            onChange={(e) => setPassword(e.target.value)}
           />
-          <label>Password</label>
         </div>
 
-        <input type="submit" value="Sign Up" className="sign-btn" />
+        <input
+          type="button"
+          value="Sign Up"
+          className="sign-btn"
+          onClick={handlerClick}
+        />
       </div>
     </form>
   );
