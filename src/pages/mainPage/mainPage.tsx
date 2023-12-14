@@ -1,10 +1,7 @@
-import { useState } from 'react';
-
+import Card from '../../components/card/card.tsx';
 import './style.css';
-import Card from '../../Components/card/card.jsx';
 
 export const MainPage = () => {
-
   const courses = [
     {
       courseName: 'JavaScript Разработчик',
@@ -26,36 +23,32 @@ export const MainPage = () => {
       chapterName: 'Chapter 3',
       chapterDescription: 'Программирование & Web',
       progress: 80,
-    }
+    },
   ];
 
   return (
     <>
-        <div className="card-container">
-          <div className="category-title">
-            <h1>Рекомендации</h1>
-          </div>
-          <div className="category">
+      <div className="card-container">
+        <div className="category-title">
+          <h1>Рекомендации</h1>
+        </div>
+        <div className="category">
           <div>
-     {courses.map((course, index) => (
-       <Card
-         key={index}
-         courseName={course.courseName}
-         courseDescription={course.courseDescription}
-         chapterName={course.chapterName}
-         chapterDescription={course.chapterDescription}
-         progress={course.progress}
-         challenges={course.challenges}
-       />
-     ))}
-   </div>
-          </div>
-          <div className="band">
-
+            {courses.map((course, index) => (
+              <Card
+                key={index}
+                courseName={course.courseName}
+                courseDescription={course.courseDescription}
+                chapterName={course.chapterName}
+                chapterDescription={course.chapterDescription}
+                progress={course.progress}
+                // challenges={course?.challenges}
+              />
+            ))}
           </div>
         </div>
-  
-
-  </>
-);
-  }
+        <div className="band"></div>
+      </div>
+    </>
+  );
+};

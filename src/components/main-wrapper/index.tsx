@@ -1,12 +1,9 @@
-import Header from '../header/header.jsx';
-import LeftPanel from '../panel/leftPanel.jsx';
-import Title from '../title/title.jsx';
+import Header from '../header/header.tsx';
+import LeftPanel from '../panel/leftPanel.tsx';
+import Title from '../title/title.tsx';
 import './style.css';
 
-// eslint-disable-next-line react/prop-types
-export const MainWrapper = ({children}) => {
-
-
+export const MainWrapper = ({ children }: any) => {
   return (
     <>
       <Header />
