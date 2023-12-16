@@ -1,23 +1,24 @@
 import logo from '../../assets/logo.png';
 import './styles.css';
 
-const Header = () => {
-  return (
-    <div className="header">
-      <div className="project-name">Для адаптации</div>
-      <div className="header-container">
-        <div className="right-cont">
-          <div className="notifications">🔔</div>
-          <div className="profile">
-            <img
-              src={logo}
-              alt="Profile"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
+const Header: React.FC = () => {
+ return (
+   <header className="header-outer">
+     <div className="header-inner responsive-wrapper">
+       <div className="header-logo">
+         <img src={logo} alt="Logo" />
+         <h1>FULLSTACK FATHER</h1>
+       </div>
+       <nav className="header-navigation">
+         <a href="#">Home</a>
+         <a href="#">Test</a>
+         <a href="#">Recomendation</a>
+         <a href="#">Contact Us</a>
+         <button>Menu</button>
+       </nav>
+     </div>
+   </header>
+ );
+}
 
 export default Header;

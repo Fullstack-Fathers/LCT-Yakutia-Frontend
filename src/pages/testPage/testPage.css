@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500&display=swap');
+* {
+  font-family: 'Fredoka', sans-serif;
+}
+body {
+  font-family: Helvetica;
+}
+* {
+  box-sizing: border-box;
+}
+#app {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  border-radius: 4px;
+  padding: 20px;
+  transition: all 0.2s;
+}
+.Quiz {
+  background: #FF9933;
+  width: 70%;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  border: 1px #000 solid;
+}
+.quiz {
+  width: 600px;
+  border-radius: 5px;
+  background: #ffff;
+  display: flex;
+  flex-direction: column;
+
+  gap: 1.2rem;
+  padding: 0.9rem 1rem;
+}
+
+.question {
+  width: 100%;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  text-align: center;
+}
+.answers {
+  width: 100%;
+  padding: 0.5rem;
+  display: flex;
+  gap: 20px;
+  justify-content: space-evenly;
+}
+.quiz .answers .answer {
+  background: #0099DD;
+  padding: 0.5rem 1rem;
+  outline: none;
+  border: none;
+  color: white;
+}
+.quiz .answers .answer:hover {
+  background: #026E81;
+}
+.true {
+  color: blue;
+}
+.false {
+  color: red;
+}
+.starter {
+  background: #0099DD;
+  padding: 0.5rem 1.5rem;
+  outline: none;
+  font-size: 1.2rem;
+  border: none;
+  color: white;
+  align-self: center;
+}
+.starter:hover {
+  background: #026E81;
+}
+.score {
+  font-size: 1.2rem;
+  color: white;
+  text-align: center;
+  padding: 0.5rem 1.5rem;
+}
+.Quiz {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.red {
+  color: #CB001E;
+}
+.blue {
+  color: #001ECB;
+}
+.green {
+  color: #1ecb00;
+}
+.msg {
+  padding: 0.5rem 1rem;
+  background: white;
+  border-radius: 5px;
+}
+.name {
+  margin-bottom: 15px;
+  font-size: 2rem;
+  color: #ffff;
+}
