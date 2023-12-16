@@ -7,17 +7,21 @@ export const SignInForm = ({ onToggle }: any) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [signIn, { error }] = useSignInMutation();
+  const [isSend, setIsSend] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!error) {
-      navigate('');
+    if (!error && email.length > 0 && password.length > 0 && isSend) {
+      console.log('dadada');
+      navigate('/main');
     }
-  }, [error]);
+    console.log(email, password);
+  }, [error, isSend]);
 
   const handlerClick = async () => {
     if (email && password) {
       await signIn({ email, password });
+      setIsSend(true);
     }
   };
 
@@ -57,10 +61,7 @@ export const SignInForm = ({ onToggle }: any) => {
             autoComplete="off"
             required
             placeholder="Password"
-            onChange={(e) => {
-              setPassword(e.target.value);
-              console.log(e.target.value);
-            }}
+            onChange={(e) => setPassword(e.target.value)}
           />
         </div>
 
