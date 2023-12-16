@@ -8,13 +8,20 @@ export const SignUpForm = ({ onToggle }: any) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [signUp, { error }] = useSignUpMutation();
+  const [isSend, setIsSend] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!error) {
-      navigate('');
+    if (
+      !error &&
+      email.length > 0 &&
+      name.length > 0 &&
+      password.length > 0 &&
+      isSend
+    ) {
+      navigate('/main');
     }
-  }, [error]);
+  }, [error, isSend]);
 
   const handlerClick = async () => {
     if (name && email && password) {
@@ -23,6 +30,7 @@ export const SignUpForm = ({ onToggle }: any) => {
         name,
         password,
       });
+      setIsSend(true);
     }
   };
 
